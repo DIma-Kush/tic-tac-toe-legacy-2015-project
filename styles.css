@@ -1,0 +1,121 @@
+body {
+    background: ghostwhite;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.tile {
+    display: inline-block;
+    height: 20vh;
+    width: 20vh;
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 5px;
+    background: #DCDCCA;
+    margin: 1px;
+    vertical-align: top;
+}
+
+.tile:hover {
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.restart {
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 23.5rem;
+    height: 60px;
+    background: #4B8BFA;
+    line-height: 60px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.restart:hover {
+    background: #A6C4F7;
+    color: #292929;
+}
+
+#gameContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#slime {
+    min-width: 3rem;
+    margin-right: .5rem;
+}
+
+#winScreen > div {
+    display: flex;
+    align-items: center;
+}
+
+#quote {
+    display: block;
+    min-height: 38px;
+    width: 150px;
+    border-radius: 10px;
+    background: #FFFFA3;
+    font-size: 16px;
+    padding: 5px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#quote::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 10px solid transparent;
+    border-right: 10px solid #FFFFA3;
+}
+
+#winScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    flex-direction: column;
+}
+
+#winScreen span {
+    font-size: 3rem;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 400px) {
+    .tile {
+        height: 15vh;
+        width: 15vh;
+    }
+
+    .restart {
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    #winScreen span {
+        font-size: 3vh;
+    }
+}

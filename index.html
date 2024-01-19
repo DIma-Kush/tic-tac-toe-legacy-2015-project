@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TIC-TAC-TOE</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="gameContainer">
+	<div id="winScreen" class="hidden">
+		<span id="winMessage"></span>
+		<div>
+			<img src="slime.gif" alt="slime" id="slime"/>
+			<div id="quote">Натисніть 'рестарт' для продовження</div>
+		</div>
+	</div>
+	<div id="board">
+		<div class="row">
+			<div class="tile" id="t1"></div>
+			<div class="tile" id="t2"></div>
+			<div class="tile" id="t3"></div>
+		</div>
+		<div class="row">
+			<div class="tile" id="t4"></div>
+			<div class="tile" id="t5"></div>
+			<div class="tile" id="t6"></div>
+		</div>
+		<div class="row">
+			<div class="tile" id="t7"></div>
+			<div class="tile" id="t8"></div>
+			<div class="tile" id="t9"></div>
+		</div>
+	</div>
+	<div class="restart" onclick="restartGame()">РЕСТАРТ</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
