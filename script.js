@@ -58,36 +58,46 @@ document.addEventListener("DOMContentLoaded", () => {
 		return null;
 	};
 
+	/**
+	 * Process tile clock
+	 *
+	 * @param {Object} tile
+	 * @param {boolean} index
+	 * @returns {undefined}.
+	 */
 	const handleTileClick = (tile, index) => {
-		if (tile.style.background !== SCHEMA.COLORS.TILE_BLUE && tile.style.background !== SCHEMA.COLORS.TILE_RED) {
-			tile.style.background = move % 2 === 0 ? SCHEMA.COLORS.TILE_RED : SCHEMA.COLORS.TILE_BLUE;
-			gameState[index] = move % 2 === 0 ? 'r' : 'b';
-
-			const winner = checkForWinner();
-			if (winner) {
-				winScreen.style.display = 'flex';
-				switch (winner) {
-					case 'r':
-						winScreen.style.background = SCHEMA.COLORS.RED;
-						winMessage.innerHTML = SCHEMA.MESSAGES.RED_WIN;
-						break;
-					case 'b':
-						winScreen.style.background = SCHEMA.COLORS.BLUE;
-						winMessage.innerHTML = SCHEMA.MESSAGES.BLUE_WIN;
-						break;
-					default:
-						winScreen.style.background = SCHEMA.COLORS.DRAW;
-						winMessage.innerHTML = SCHEMA.MESSAGES.DRAW;
-				}
-
-				winScreen.style.width = `${board.clientWidth}px`;
-				winScreen.style.height = `${board.clientHeight}px`;
-
-				slime.style.display = 'block';
-				quote.style.display = 'block';
-			}
-			move++;
+		// Check if the tile has already been clicked by checking gameState
+		if (gameState[index] !== null) {
+			return;
 		}
+
+		tile.style.background = move % 2 === 0 ? SCHEMA.COLORS.TILE_RED : SCHEMA.COLORS.TILE_BLUE;
+		gameState[index] = move % 2 === 0 ? 'r' : 'b';
+
+		const winner = checkForWinner();
+		if (winner) {
+			winScreen.style.display = 'flex';
+			switch (winner) {
+				case 'r':
+					winScreen.style.background = SCHEMA.COLORS.RED;
+					winMessage.innerHTML = SCHEMA.MESSAGES.RED_WIN;
+					break;
+				case 'b':
+					winScreen.style.background = SCHEMA.COLORS.BLUE;
+					winMessage.innerHTML = SCHEMA.MESSAGES.BLUE_WIN;
+					break;
+				default:
+					winScreen.style.background = SCHEMA.COLORS.DRAW;
+					winMessage.innerHTML = SCHEMA.MESSAGES.DRAW;
+			}
+
+			winScreen.style.width = `${board.clientWidth}px`;
+			winScreen.style.height = `${board.clientHeight}px`;
+
+			slime.style.display = 'block';
+			quote.style.display = 'block';
+		}
+		move++;
 	};
 
 	tiles.forEach((tile, index) => {
